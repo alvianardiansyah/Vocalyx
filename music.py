@@ -282,9 +282,10 @@ if df is not None:
             clear_button = st.button("🗑️ Reset", type="secondary", use_container_width=False)
         
         # Reset search results
-        if clear_button:
-            query = ""
+        if st.session_state.get("reload"):
+            st.session_state["reload"] = False
             st.experimental_rerun()
+
         
         # Search results
         if query and search_button:
