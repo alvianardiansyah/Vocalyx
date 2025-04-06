@@ -239,6 +239,9 @@ with st.sidebar:
     
     st.markdown("---")
     st.markdown("Dibuat oleh Kelompok 14 STKI")
+    st.markdown("1. Alvian Ardiansya – E1E122039")
+    st.markdown("2. Ghefira Zahra Nur Fadhila – E1E122055")
+    st.markdown("3. Nuzul Gusti Tiara Fitri – E1E122073")
 
 # Load data
 df = load_data()
