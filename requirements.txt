@@ -8,3 +8,4 @@ wordcloud
 Sastrawi
 spotipy
 openpyxl
+plotly
