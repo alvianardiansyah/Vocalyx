@@ -195,7 +195,7 @@ def clean_text(text):
 @st.cache_data
 def load_data():
     try:
-        df = pd.read_excel('D:\\My Data ALL\\Downloads\\tes\\indo-song.xlsx')
+        df = pd.read_excel('indo-song.xlsx')
         df['lirik_clean'] = df['lirik'].astype(str).apply(clean_text)
         return df
     except FileNotFoundError:
@@ -211,7 +211,7 @@ def create_vectorizer(df):
 
 # Sidebar for information
 with st.sidebar:
-    st.image("D:\\My Data ALL\\Downloads\\tes\\music.jpg", width=300)  # Replace with actual music icon URL
+    st.image("music.jpg", width=300)  # Replace with actual music icon URL
     st.header("Tentang Aplikasi")
     st.markdown("""
     Aplikasi ini menggunakan:
