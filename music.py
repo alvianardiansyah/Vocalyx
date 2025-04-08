@@ -578,7 +578,11 @@ if df is not None:
                 
                 with col_chart1:
                     # Create horizontal bar chart with Plotly for better interactivity
-                    title_pendek = [f"{title[:25]}..." if len(title) > 25 else title for title in hasil_sorted['title']]
+                    title_pendek = [
+                        f"{str(title)[:25]}..." if title and len(str(title)) > 25 else str(title)
+                        for title in hasil_sorted['title']
+                    ]
+
                     
                     fig = go.Figure()
                     
@@ -654,8 +658,10 @@ if df is not None:
                                 <div class="song-title">{row['title']}</div>
                                 <div class="artist-name">oleh {row['artist']}</div>
                                 <div class="match-score">Kecocokan: {row['probability']:.1f}%</div>
-                                <div class="lyrics-preview">{row['lirik'][:250]}...</div>
+                                <div class="lyrics-preview">{row['lirik']}</div>
                             """, unsafe_allow_html=True)
+                            # Tambahkan expander di bawahnya untuk lirik lengkap
+
                             
                             # Get Spotify data if token is available
                             spotify_data = None
@@ -870,7 +876,7 @@ else:
         st.markdown("""
         ### Troubleshooting
         
-        1. Pastikan file dataset 'indo-song.xlsx' berada di direktori yang tepat atau ubah path pada kode aplikasi
+        1. Pastikan file dataset 'indo-song.xlsx' berada di direktori atau ubah path pada kode aplikasi
         2. Periksa format file dataset, pastikan itu adalah file Excel (.xlsx)
         3. Pastikan file dataset memiliki kolom 'title', 'artist', dan 'lirik'
         4. Restart aplikasi dengan menjalankan kembali perintah `streamlit run app.py`
